@@ -21,13 +21,52 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+    var height = $('body').height() * Math.random();
+    if (height < 100) {
+      height = 100;
+    }
+    var dancer = new dancerMakerFunction(
+      height,
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $('#lineUpButton').click(function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+
+  $('#pairUpButton').click(function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+
+  $('#spreadOutButton').click(function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      dancers[i].startTop = $('body').height() * Math.random();
+      dancers[i].startLeft = $('body').width() * Math.random();
+      if (dancers[i].startTop < 100) {
+        dancers[i].startTop = 100;
+      }
+      window.dancers[i].setPosition(dancers[i].startTop, dancers[i].startLeft);
+    }
+  });
+
+  $('body').on('mouseover', '.dancer', function(event) {
+    var current = event.currentTarget;
+    console.log(current.style);
+    var spacing = 100;
+    for (var i = 0; i < window.dancers.length; i++) {
+      // console.log(event.currentTarget);
+      // var distance = Math.sqrt(Math.pow((event.currentTarget. - y2), 2) + Math.pow((x - x2), 2));
+      window.dancers[i].setPosition(spacing, spacing);
+      spacing += 50;
+    }
   });
 });
 

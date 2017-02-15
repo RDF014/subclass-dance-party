@@ -6,11 +6,19 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/bouncyDancer.js"></script>
+    <script src="src/spinningDancer.js"></script>
   </head>
-  <body>
+  <body class="background" background="img/Dancefloor.jpg">
+    <!--<embed src="CantStopTheFeeling.m4a" controls="false">-->
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">Add a Blinky Dancer</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBouncyDancer">Add a Bouncy Dancer</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeSpinningDancer">Add a Spinny Dancer</a>    
+      <a href="#" class="controlButton" id="lineUpButton">Line Up Dancers</a>    
+      <a href="#" class="controlButton" id="spreadOutButton">Scatter Dancers</a>    
+    </div>
     <script src="src/init.js"></script>
   </body>
 </html>
